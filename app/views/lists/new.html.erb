@@ -1,0 +1,10 @@
+<h1> Ajouter une nouvelle liste de films </h1>
+
+<%= form_with model: @list do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+
+<p> <%= link_to "Home", lists_path  %></p>

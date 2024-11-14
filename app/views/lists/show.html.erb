@@ -1,0 +1,21 @@
+<h1>Ma liste de films <%=@list.name%>:</h1>
+
+<p><strong>Movies</strong></p>
+<ul class="list-group">
+  <% @list.movies.each do |movie| %>
+    <li class="list-group-item"><%= movie.title %></li>
+    <li class="list-group-item"><%= movie.overview %></li>
+    <%@bookmark = Bookmark.where(list_id: @list.id, movie_id: movie.id).first %>
+    <li class="list-group-item"><%= @bookmark.comment %></li>
+    <%= link_to "Supprimer",
+  bookmark_path(@bookmark),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+</ul>
+<br>
+
+
+
+<p> <%= link_to "Ajouter un film", new_list_bookmark_path(@list) %></p>
+
+<p> <%= link_to "Home", lists_path  %></p>
