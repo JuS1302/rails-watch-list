@@ -1,5 +1,7 @@
 <h1>Ma liste de films <%=@list.name%>:</h1>
 
+<%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+
 <p><strong>Movies</strong></p>
 <ul class="list-group">
   <% @list.movies.each do |movie| %>
