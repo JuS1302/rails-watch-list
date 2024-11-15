@@ -1,6 +1,10 @@
 <h1>Ma liste de films <%=@list.name%>:</h1>
 
+<% if @list.photo.attached? %>
 <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+<%= cl_image_tag "pngtree-a-otter-on-tire-with-green-background-png-image_13046574_dgx7ou", height: 300, width: 400, crop: :fill %>
+<% end %>
 
 <p><strong>Movies</strong></p>
 <ul class="list-group">
